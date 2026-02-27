@@ -14,13 +14,19 @@ cargo run -- <検索文字列> <ファイルパス>
 cargo run -- hello poem.txt
 ```
 
+大文字小文字を無視して検索する場合は環境変数 `IGNORE_CASE` を設定します。
+
+```sh
+IGNORE_CASE=1 cargo run -- hello poem.txt
+```
+
 ## 機能
 
 - コマンドライン引数から検索文字列とファイルパスを受け取る
-- `Config`構造体と`Config::new`コンストラクタで設定を管理
+- `Config::build`で設定を管理（エラーは`Result`で返す）
 - 引数不足時のバリデーション
-- 指定されたファイルの内容を読み込み表示する
-- `Box<dyn Error>`によるエラーハンドリング（ファイル読み込みエラーなど）
-- `search`関数によるキーワード検索（マッチした行を表示）
+- 指定されたファイルからマッチした行を検索・表示
+- `IGNORE_CASE`環境変数による大文字小文字を無視した検索
+- `Box<dyn Error>`によるエラーハンドリング
 - `lib.rs` / `main.rs` 分離構成
 - ユニットテスト (`#[cfg(test)]`)
