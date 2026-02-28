@@ -29,4 +29,5 @@ IGNORE_CASE=1 cargo run -- hello poem.txt
 - `IGNORE_CASE`環境変数による大文字小文字を無視した検索
 - `Box<dyn Error>`によるエラーハンドリング
 - `lib.rs` / `main.rs` 分離構成
+- エラーメッセージは`eprintln!`で標準エラー出力に出力
 - ユニットテスト (`#[cfg(test)]`)
